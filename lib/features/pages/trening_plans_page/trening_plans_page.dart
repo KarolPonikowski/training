@@ -22,7 +22,12 @@ class _TraningPlansPageState extends State<TraningPlansPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AddNewPlanPage()),
+                );
+              },
               child: const Text('Dodaj nowy plan treningowy'),
             ),
             const Padding(
