@@ -1,6 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart' as auth;
+import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterfire_ui/auth.dart';
 
 import '../home/home_page.dart';
 
@@ -9,20 +9,21 @@ class AuthGate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
-      stream: FirebaseAuth.instance.authStateChanges(),
-      initialData: FirebaseAuth.instance.currentUser,
+    return StreamBuilder<auth.User?>(
+      stream: auth.FirebaseAuth.instance.authStateChanges(),
       builder: (context, snapshot) {
+        // User is not signed in
         if (!snapshot.hasData) {
-          return const SignInScreen(
-            providerConfigs: [
-              EmailProviderConfiguration(),
+          return SignInScreen(
+            providers: [
+              EmailAuthProvider(),
             ],
           );
         }
+
+        // Render your application if authenticated
         return const HomePage(
           title: '',
-          // currentUser: snapshot.data!,
         );
       },
     );
