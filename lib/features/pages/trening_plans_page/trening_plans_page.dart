@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../add_new_plan/add_new_plan_page.dart';
+import '../plan_list/plan-list-page.dart';
 
 class TraningPlansPage extends StatelessWidget {
   const TraningPlansPage({Key? key}) : super(key: key);
@@ -34,7 +35,15 @@ class TraningPlansPage extends StatelessWidget {
               vertical: 20,
             )),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => PlanListPage(
+                            title: '',
+                          )),
+                );
+              },
               child: const Text('Edytuj istniejący plan treningowy'),
             ),
             const Padding(
