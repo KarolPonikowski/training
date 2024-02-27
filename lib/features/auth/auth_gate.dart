@@ -12,7 +12,6 @@ class AuthGate extends StatelessWidget {
     return StreamBuilder<auth.User?>(
       stream: auth.FirebaseAuth.instance.authStateChanges(),
       builder: (context, snapshot) {
-        // User is not signed in
         if (!snapshot.hasData) {
           return SignInScreen(
             providers: [
@@ -21,7 +20,6 @@ class AuthGate extends StatelessWidget {
           );
         }
 
-        // Render your application if authenticated
         return const HomePage(
           title: '',
         );
