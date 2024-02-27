@@ -17,6 +17,31 @@ class _TraningPlansPageState extends State<TraningPlansPage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('Plany Treningowe'),
       ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Dodaj nowy plan treningowy'),
+            ),
+            const Padding(
+                padding: EdgeInsets.symmetric(
+              horizontal: 30,
+              vertical: 20,
+            )),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Edytuj istniejący plan treningowy'),
+            ),
+            const Padding(
+                padding: EdgeInsets.symmetric(
+              horizontal: 30,
+              vertical: 20,
+            )),
+          ],
+        ),
+      ),
     );
   }
 }
