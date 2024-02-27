@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../trening_plans_page/trening_plans_page.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.title});
 
@@ -40,7 +42,12 @@ class _HomePageState extends State<HomePage> {
               vertical: 20,
             )),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => TraningPlansPage()),
+                );
+              },
               child: const Text('Plany Treningowe'),
             ),
           ],
