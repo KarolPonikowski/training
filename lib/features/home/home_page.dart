@@ -10,14 +10,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,20 +21,30 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Dodaj nowy trening'),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            const Padding(
+                padding: EdgeInsets.symmetric(
+              horizontal: 30,
+              vertical: 20,
+            )),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Zrealizowane treningi'),
+            ),
+            const Padding(
+                padding: EdgeInsets.symmetric(
+              horizontal: 30,
+              vertical: 20,
+            )),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Plany Treningowe'),
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
