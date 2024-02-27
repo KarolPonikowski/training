@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 
-class TraningPlansPage extends StatefulWidget {
+import '../add_new_plan/add_new_plan_page.dart';
+
+class TraningPlansPage extends StatelessWidget {
   const TraningPlansPage({Key? key}) : super(key: key);
-
-  @override
-  State<TraningPlansPage> createState() => _TraningPlansPageState();
-}
-
-class _TraningPlansPageState extends State<TraningPlansPage> {
-  String? _title;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +20,10 @@ class _TraningPlansPageState extends State<TraningPlansPage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => AddNewPlanPage()),
+                  MaterialPageRoute(
+                      builder: (context) => AddNewPlanPage(
+                            title: '',
+                          )),
                 );
               },
               child: const Text('Dodaj nowy plan treningowy'),
