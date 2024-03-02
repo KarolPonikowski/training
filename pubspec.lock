@@ -217,6 +217,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.4.1"
+  firestore_repository_helper:
+    dependency: "direct main"
+    description:
+      name: firestore_repository_helper
+      sha256: "55806bdf40035a69cc0983c4159fa9dc454ffb82e06c258422f9a2b377ada49e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.1"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -253,6 +261,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  future_helper:
+    dependency: transitive
+    description:
+      name: future_helper
+      sha256: "6ca41ec2628d6e6882a191983aa253b0e77744d0e6278dc3446ff2daec195b2b"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.1"
   http:
     dependency: transitive
     description:
@@ -349,6 +365,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.8"
+  resource_result:
+    dependency: transitive
+    description:
+      name: resource_result
+      sha256: "163bd3f0a51d9b4cf5433697695c2f1dc1b07015aca6cf8962fb0b1cc9b62516"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.6"
   sky_engine:
     dependency: transitive
     description: flutter

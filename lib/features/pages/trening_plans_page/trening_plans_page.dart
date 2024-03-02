@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 
 import '../add_new_plan/add_new_plan_page.dart';
-import '../plan_list/plan-list-page.dart';
+import '../plan_list/plan_list_page.dart';
 
-class TraningPlansPage extends StatelessWidget {
+class TraningPlansPage extends StatefulWidget {
   const TraningPlansPage({Key? key}) : super(key: key);
 
+  @override
+  State<TraningPlansPage> createState() => _TraningPlansPageState();
+}
+
+class _TraningPlansPageState extends State<TraningPlansPage> {
+  var currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +29,11 @@ class TraningPlansPage extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) => AddNewPlanPage(
-                            title: '',
+                            onSave: () {
+                              setState(() {
+                                currentIndex = 0;
+                              });
+                            },
                           )),
                 );
               },
@@ -39,7 +49,7 @@ class TraningPlansPage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => PlanListPage(
+                      builder: (context) => const PlanListPage(
                             title: '',
                           )),
                 );

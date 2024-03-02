@@ -40,7 +40,8 @@ class HomePage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => TraningPlansPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const TraningPlansPage()),
                 );
               },
               child: const Text('Plany Treningowe'),

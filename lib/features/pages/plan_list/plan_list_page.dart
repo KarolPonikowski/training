@@ -12,6 +12,6 @@ class PlanListPage extends StatefulWidget {
 class _PlanListPageState extends State<PlanListPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const Scaffold();
   }
 }
