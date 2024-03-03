@@ -1,6 +1,8 @@
-// ignore_for_file: file_names
-
 class TraninigPlanModel {
-  TraninigPlanModel(this.title);
+  TraninigPlanModel({
+    required this.id,
+    required this.title,
+  });
   final String title;
+  final String id;
 }
