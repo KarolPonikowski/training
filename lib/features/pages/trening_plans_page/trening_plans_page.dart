@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../add_new_plan/add_new_plan_page.dart';
+import '../add_plan_name/add_plan_name_page.dart';
 import '../plan_list/plan_list_page.dart';
 
 class TraningPlansPage extends StatefulWidget {
@@ -45,9 +46,7 @@ class _TraningPlansPageState extends State<TraningPlansPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const PlanListPage(
-                            title: '',
-                          )),
+                      builder: (context) => const AddPlanNamePage()),
                 );
               },
               child: const Text('Edytuj istniejący plan treningowy'),
