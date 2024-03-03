@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import '../models/exercise_model.dart';
 
-class PlansRepository {
+class ExerciseRepository {
   Stream<List<ExerciseModel>> getItemsStream() {
     final userID = FirebaseAuth.instance.currentUser?.uid;
     if (userID == null) {
