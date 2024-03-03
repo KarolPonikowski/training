@@ -28,13 +28,9 @@ class _TraningPlansPageState extends State<TraningPlansPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => AddNewPlanPage(
-                            onSave: () {
-                              setState(() {
-                                currentIndex = 0;
-                              });
-                            },
-                          )),
+                    builder: (context) => const AddNewPlanPage(),
+                    fullscreenDialog: true,
+                  ),
                 );
               },
               child: const Text('Dodaj nowy plan treningowy'),
