@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../repository/exercise_repository.dart';
+import '../../Widgets/add_exercise_widget.dart';
 import 'cubit/add_exercise_page_cubit.dart';
 
 class AddExercisePage extends StatefulWidget {
@@ -46,13 +47,13 @@ class _AddExercisePageState extends State<AddExercisePage> {
                 appBar: AppBar(
                   title: const Text('Training App'),
                   actions: [
-                    IconButton(
+                    ElevatedButton(
                       onPressed: _title == null
                           ? null
                           : () {
                               context.read<AddExerciseCubit>().add(_title!);
                             },
-                      icon: const Icon(Icons.add),
+                      child: const Icon(Icons.add),
                     ),
                   ],
                 ),
@@ -84,14 +85,7 @@ class _AddPlanNameBody extends StatelessWidget {
         vertical: 20,
       ),
       children: [
-        TextField(
-          onChanged: onTitleChanged,
-          decoration: const InputDecoration(
-            border: OutlineInputBorder(),
-            hintText: 'Nazwa nowego treningu',
-            label: Text('Title'),
-          ),
-        ),
+        AddExerciseWidget(onTitleChanged: onTitleChanged),
       ],
     );
   }

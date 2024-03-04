@@ -89,8 +89,8 @@ class _AddPlanNameBody extends StatelessWidget {
           onChanged: onTitleChanged,
           decoration: const InputDecoration(
             border: OutlineInputBorder(),
-            hintText: 'Nazwa nowego treningu',
-            label: Text('Title'),
+            hintText: 'Nazwa nowego planu treningowego',
+            label: Text('Nazwa planu'),
           ),
         ),
       ],
