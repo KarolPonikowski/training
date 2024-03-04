@@ -24,13 +24,7 @@ class _AddExercisePageState extends State<AddExercisePage> {
         child: BlocListener<AddExerciseCubit, AddExercisePageState>(
           listener: (context, state) {
             if (state.saved) {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const AddExercisePage(),
-                  fullscreenDialog: true,
-                ),
-              );
-              ;
+              Navigator.of(context).pop();
             }
             if (state.errorMessage.isNotEmpty) {
               ScaffoldMessenger.of(context).showSnackBar(
@@ -86,6 +80,11 @@ class _AddPlanNameBody extends StatelessWidget {
       ),
       children: [
         AddExerciseWidget(onTitleChanged: onTitleChanged),
+        AddExerciseWidget(onTitleChanged: onTitleChanged),
+        AddExerciseWidget(onTitleChanged: onTitleChanged),
+        AddExerciseWidget(onTitleChanged: onTitleChanged),
+        AddExerciseWidget(onTitleChanged: onTitleChanged),
+        AddExerciseWidget(onTitleChanged: onTitleChanged)
       ],
     );
   }

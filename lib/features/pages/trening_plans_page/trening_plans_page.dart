@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../add_exercise/add_exercise_page.dart';
 import '../add_new_plan/add_new_plan_page.dart';
 import '../add_plan_name/add_plan_name_page.dart';
 
@@ -29,6 +30,23 @@ class _TraningPlansPageState extends State<TraningPlansPage> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => const AddPlanNamePage(),
+                    fullscreenDialog: true,
+                  ),
+                );
+              },
+              child: const Text('Dodaj nowe ćwiczenie'),
+            ),
+            const Padding(
+                padding: EdgeInsets.symmetric(
+              horizontal: 30,
+              vertical: 20,
+            )),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const AddExercisePage(),
                     fullscreenDialog: true,
                   ),
                 );

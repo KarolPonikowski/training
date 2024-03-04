@@ -6,7 +6,7 @@ class AddExerciseWidget extends StatelessWidget {
     required this.onTitleChanged,
   });
 
-  final Function(String p1) onTitleChanged;
+  final Function(String) onTitleChanged;
 
   @override
   Widget build(BuildContext context) {

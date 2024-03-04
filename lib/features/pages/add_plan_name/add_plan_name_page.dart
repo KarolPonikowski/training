@@ -24,13 +24,7 @@ class _AddPlanNamePageState extends State<AddPlanNamePage> {
         child: BlocListener<AddPlanNameCubit, AddPlanNamePageState>(
           listener: (context, state) {
             if (state.saved) {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const AddExercisePage(),
-                  fullscreenDialog: true,
-                ),
-              );
-              ;
+              Navigator.of(context).pop();
             }
             if (state.errorMessage.isNotEmpty) {
               ScaffoldMessenger.of(context).showSnackBar(
