@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../repository/training_plan_repository.dart';
 import '../add_exercise/add_exercise_page.dart';
+import '../add_new_plan/add_new_plan_page.dart';
 import 'cubit/add_plan_name_page_cubit.dart';
 
 class AddPlanNamePage extends StatefulWidget {
@@ -24,7 +25,11 @@ class _AddPlanNamePageState extends State<AddPlanNamePage> {
         child: BlocListener<AddPlanNameCubit, AddPlanNamePageState>(
           listener: (context, state) {
             if (state.saved) {
-              Navigator.of(context).pop();
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => AddNewPlanPage(),
+                ),
+              );
             }
             if (state.errorMessage.isNotEmpty) {
               ScaffoldMessenger.of(context).showSnackBar(
