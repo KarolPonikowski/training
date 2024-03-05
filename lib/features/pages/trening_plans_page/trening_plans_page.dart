@@ -29,7 +29,7 @@ class _TraningPlansPageState extends State<TraningPlansPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const AddPlanNamePage(),
+                    builder: (context) => const AddExercisePage(),
                     fullscreenDialog: true,
                   ),
                 );
@@ -46,7 +46,7 @@ class _TraningPlansPageState extends State<TraningPlansPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const AddExercisePage(),
+                    builder: (context) => const AddPlanNamePage(),
                     fullscreenDialog: true,
                   ),
                 );
