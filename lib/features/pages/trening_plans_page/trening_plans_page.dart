@@ -59,7 +59,14 @@ class _TraningPlansPageState extends State<TraningPlansPage> {
               vertical: 20,
             )),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Praca w toku'),
+                    duration: Duration(seconds: 2),
+                  ),
+                );
+              },
               child: const Text('Edytuj istniejący plan treningowy'),
             ),
             const Padding(

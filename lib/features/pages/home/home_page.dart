@@ -19,7 +19,14 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Praca w toku'),
+                    duration: Duration(seconds: 2),
+                  ),
+                );
+              },
               child: const Text('Dodaj nowy trening'),
             ),
             const Padding(
@@ -28,7 +35,14 @@ class HomePage extends StatelessWidget {
               vertical: 20,
             )),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Praca w toku'),
+                    duration: Duration(seconds: 2),
+                  ),
+                );
+              },
               child: const Text('Zrealizowane treningi'),
             ),
             const Padding(
