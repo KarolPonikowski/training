@@ -12,11 +12,10 @@ class AddExerciseCubit extends Cubit<AddExercisePageState> {
 
   Future<void> add(
     String title,
+    String part,
   ) async {
     try {
-      await _exerciseRepository.add(
-        title,
-      );
+      await _exerciseRepository.add(title, part);
       emit(const AddExercisePageState(saved: true));
     } catch (error) {
       emit(AddExercisePageState(errorMessage: error.toString()));

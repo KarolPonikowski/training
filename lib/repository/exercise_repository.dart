@@ -20,6 +20,7 @@ class ExerciseRepository {
           return ExerciseModel(
             id: doc.id,
             title: doc['title'],
+            part: doc['part'],
           );
         },
       ).toList();
@@ -53,11 +54,13 @@ class ExerciseRepository {
     return ExerciseModel(
       id: doc.id,
       title: doc['title'],
+      part: doc['part'],
     );
   }
 
   Future<void> add(
     String title,
+    String part,
   ) async {
     final userID = FirebaseAuth.instance.currentUser?.uid;
     if (userID == null) {
@@ -70,6 +73,7 @@ class ExerciseRepository {
         .add(
       {
         'title': title,
+        'part': part,
       },
     );
   }

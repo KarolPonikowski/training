@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../repository/exercise_repository.dart';
-import '../../Widgets/add_exercise_widget.dart';
 import 'cubit/add_exercise_page_cubit.dart';
 
 class AddExercisePage extends StatefulWidget {
@@ -16,6 +15,7 @@ class AddExercisePage extends StatefulWidget {
 
 class _AddExercisePageState extends State<AddExercisePage> {
   String? _title;
+  String? _part;
 
   @override
   Widget build(BuildContext context) {
@@ -44,9 +44,14 @@ class _AddExercisePageState extends State<AddExercisePage> {
                     ElevatedButton(
                       onPressed: _title == null
                           ? null
-                          : () {
-                              context.read<AddExerciseCubit>().add(_title!);
-                            },
+                          : _part == null || _title == null
+                              ? null
+                              : () {
+                                  context.read<AddExerciseCubit>().add(
+                                        _title!,
+                                        _part!,
+                                      );
+                                },
                       child: const Icon(Icons.add),
                     ),
                   ],
@@ -55,6 +60,11 @@ class _AddExercisePageState extends State<AddExercisePage> {
                   onTitleChanged: (newValue) {
                     setState(() {
                       _title = newValue;
+                    });
+                  },
+                  onPartChanged: (newValue) {
+                    setState(() {
+                      _part = newValue;
                     });
                   },
                 ),
@@ -66,10 +76,12 @@ class _AddExercisePageState extends State<AddExercisePage> {
 }
 
 class _AddPlanNameBody extends StatelessWidget {
-  const _AddPlanNameBody({Key? key, required this.onTitleChanged})
+  const _AddPlanNameBody(
+      {Key? key, required this.onTitleChanged, required this.onPartChanged})
       : super(key: key);
 
   final Function(String) onTitleChanged;
+  final Function(String) onPartChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -79,12 +91,23 @@ class _AddPlanNameBody extends StatelessWidget {
         vertical: 20,
       ),
       children: [
-        AddExerciseWidget(onTitleChanged: onTitleChanged),
-        AddExerciseWidget(onTitleChanged: onTitleChanged),
-        AddExerciseWidget(onTitleChanged: onTitleChanged),
-        AddExerciseWidget(onTitleChanged: onTitleChanged),
-        AddExerciseWidget(onTitleChanged: onTitleChanged),
-        AddExerciseWidget(onTitleChanged: onTitleChanged)
+        TextField(
+          onChanged: onTitleChanged,
+          decoration: const InputDecoration(
+            border: OutlineInputBorder(),
+            hintText: 'Deadlift',
+            label: Text('Ćwiczenie'),
+          ),
+        ),
+        const SizedBox(height: 20),
+        TextField(
+          onChanged: onPartChanged,
+          decoration: const InputDecoration(
+            border: OutlineInputBorder(),
+            hintText: 'Plecy',
+            label: Text('Partia mięśniowa'),
+          ),
+        ),
       ],
     );
   }
