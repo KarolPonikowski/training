@@ -46,6 +46,23 @@ class _TraningPlansPageState extends State<TraningPlansPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
+                    builder: (context) => const AddNewPlanPage(),
+                    fullscreenDialog: true,
+                  ),
+                );
+              },
+              child: const Text('Twoje ćwiczenia'),
+            ),
+            const Padding(
+                padding: EdgeInsets.symmetric(
+              horizontal: 30,
+              vertical: 20,
+            )),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
                     builder: (context) => const AddPlanNamePage(),
                     fullscreenDialog: true,
                   ),

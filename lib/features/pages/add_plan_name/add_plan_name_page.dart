@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../repository/training_plan_repository.dart';
-import '../add_exercise/add_exercise_page.dart';
 import '../add_new_plan/add_new_plan_page.dart';
 import 'cubit/add_plan_name_page_cubit.dart';
 
@@ -27,7 +26,8 @@ class _AddPlanNamePageState extends State<AddPlanNamePage> {
             if (state.saved) {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => AddNewPlanPage(),
+                  builder: (context) => const AddNewPlanPage(),
+                  fullscreenDialog: true,
                 ),
               );
             }

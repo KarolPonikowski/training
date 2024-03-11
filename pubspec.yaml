@@ -42,6 +42,8 @@ dependencies:
   firebase_ui_auth: ^1.13.0
   firestore_repository_helper: ^2.0.1
   flutter_bloc: ^8.1.4
+  intl: ^0.18.1
+  bloc: ^8.1.3
 
 dev_dependencies:
   flutter_test:

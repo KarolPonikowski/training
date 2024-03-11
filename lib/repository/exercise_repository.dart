@@ -40,7 +40,7 @@ class ExerciseRepository {
         .delete();
   }
 
-  Future<ExerciseModel> get({required String id}) async {
+  Future<ExerciseModel> get({required String id, required exercises}) async {
     final userID = FirebaseAuth.instance.currentUser?.uid;
     if (userID == null) {
       throw Exception('User is not logged in');
