@@ -1,13 +1,15 @@
 import 'dart:ffi';
 
+import 'training_plan_model.dart';
+
 class PlanExerciseModel {
   PlanExerciseModel({
     required this.id,
-    required this.planId,
+    required TraninigPlanModel plan,
     required this.exerciseId,
     required this.weight,
     required this.reps,
-  });
+  }) : planId = plan.id;
 
   final String id;
   final String planId;
