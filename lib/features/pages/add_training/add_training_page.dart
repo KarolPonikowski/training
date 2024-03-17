@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../repository/training_repository.dart';
-import '../add_new_plan/add_new_plan_page.dart';
-import 'cubit/add_plan_name_page_cubit.dart';
+import '../add_training_n_exercises/add_training_n_exercises_page.dart';
+import 'cubit/add_training_page_cubit.dart';
 
-class AddPlanNamePage extends StatefulWidget {
-  const AddPlanNamePage({
+class AddTrainingPage extends StatefulWidget {
+  const AddTrainingPage({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<AddPlanNamePage> createState() => _AddPlanNamePageState();
+  State<AddTrainingPage> createState() => _AddTrainingPageState();
 }
 
-class _AddPlanNamePageState extends State<AddPlanNamePage> {
+class _AddTrainingPageState extends State<AddTrainingPage> {
   String? _title;
 
   @override
@@ -26,7 +26,7 @@ class _AddPlanNamePageState extends State<AddPlanNamePage> {
             if (state.saved) {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const AddNewPlanPage(),
+                  builder: (context) => const AddTrainingExercisesPage(),
                   fullscreenDialog: true,
                 ),
               );
@@ -56,7 +56,7 @@ class _AddPlanNamePageState extends State<AddPlanNamePage> {
                     ),
                   ],
                 ),
-                body: _AddPlanNameBody(
+                body: _AddTrainingBody(
                   onTitleChanged: (newValue) {
                     setState(() {
                       _title = newValue;
@@ -70,8 +70,8 @@ class _AddPlanNamePageState extends State<AddPlanNamePage> {
   }
 }
 
-class _AddPlanNameBody extends StatelessWidget {
-  const _AddPlanNameBody({Key? key, required this.onTitleChanged})
+class _AddTrainingBody extends StatelessWidget {
+  const _AddTrainingBody({Key? key, required this.onTitleChanged})
       : super(key: key);
 
   final Function(String) onTitleChanged;

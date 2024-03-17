@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:training/features/pages/add_new_plan/add_exercises_to_plan_page/cubit/add_exercises_to_plan_page_cubit.dart';
 
 import '../../../../models/exercise_model.dart';
 import '../../../../repository/exercise_repository.dart';
+import 'cubit/add_exercises_to_plan_page_cubit.dart';
 
 class ExercisesPage extends StatelessWidget {
   const ExercisesPage({

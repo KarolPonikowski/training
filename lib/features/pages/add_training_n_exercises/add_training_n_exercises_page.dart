@@ -7,10 +7,10 @@ import '../../../models/training_model.dart';
 import '../../../repository/training_exercises_repository.dart';
 import '../../../repository/training_repository.dart';
 import 'add_exercises_to_plan_page/add_exercises_to_plan_page.dart';
-import 'cubit/add_new_plan_page_cubit.dart';
+import 'cubit/add_training_n_exercises_page_cubit.dart';
 
-class AddNewPlanPage extends StatelessWidget {
-  const AddNewPlanPage({
+class AddTrainingExercisesPage extends StatelessWidget {
+  const AddTrainingExercisesPage({
     Key? key,
   }) : super(key: key);
 
@@ -20,21 +20,23 @@ class AddNewPlanPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Dodaj nowy plan'),
       ),
-      body: const _AddNewPlanPageBody(),
+      body: const _AddTrainingExercisesPageBody(),
     );
   }
 }
 
-class _AddNewPlanPageBody extends StatefulWidget {
-  const _AddNewPlanPageBody({
+class _AddTrainingExercisesPageBody extends StatefulWidget {
+  const _AddTrainingExercisesPageBody({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<_AddNewPlanPageBody> createState() => _AddNewPlanPageBodyState();
+  State<_AddTrainingExercisesPageBody> createState() =>
+      _AddTrainingExercisesPageBodyState();
 }
 
-class _AddNewPlanPageBodyState extends State<_AddNewPlanPageBody> {
+class _AddTrainingExercisesPageBodyState
+    extends State<_AddTrainingExercisesPageBody> {
   String? _selecteedtrainingId;
   late String exerciseId;
   late Double weight;
@@ -43,11 +45,12 @@ class _AddNewPlanPageBodyState extends State<_AddNewPlanPageBody> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) => AddNewPlanPageCubit(
+        create: (context) => AddTrainingExercisesPageCubit(
               TrainingRepository(),
               TrainingExercisesRepository(),
             )..start(),
-        child: BlocListener<AddNewPlanPageCubit, AddNewPlanPageState>(
+        child: BlocListener<AddTrainingExercisesPageCubit,
+            AddTrainingExercisesPageState>(
           listener: (context, state) {
             if (state.saved) {
               Navigator.of(context).pop();
@@ -61,7 +64,8 @@ class _AddNewPlanPageBodyState extends State<_AddNewPlanPageBody> {
               );
             }
           },
-          child: BlocBuilder<AddNewPlanPageCubit, AddNewPlanPageState>(
+          child: BlocBuilder<AddTrainingExercisesPageCubit,
+              AddTrainingExercisesPageState>(
             builder: (context, state) {
               final traninigPlanModels = state.plansName;
 
@@ -76,7 +80,7 @@ class _AddNewPlanPageBodyState extends State<_AddNewPlanPageBody> {
                             fullscreenDialog: true,
                           ),
                         );
-                        context.read<AddNewPlanPageCubit>().add(
+                        context.read<AddTrainingExercisesPageCubit>().add(
                               _selecteedtrainingId!,
                               '2',
                               2.2,

@@ -1,4 +1,4 @@
-part of 'add_plan_name_page_cubit.dart';
+part of 'add_training_page_cubit.dart';
 
 class AddPlanNamePageState {
   const AddPlanNamePageState({

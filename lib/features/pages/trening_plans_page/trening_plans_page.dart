@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../add_exercise/add_exercise_page.dart';
-import '../add_new_plan/add_new_plan_page.dart';
-import '../add_plan_name/add_plan_name_page.dart';
+import '../add_training/add_training_page.dart';
+import '../add_training_n_exercises/add_training_n_exercises_page.dart';
 
 class TraningPlansPage extends StatefulWidget {
   const TraningPlansPage({Key? key}) : super(key: key);
@@ -46,7 +46,7 @@ class _TraningPlansPageState extends State<TraningPlansPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const AddNewPlanPage(),
+                    builder: (context) => const AddTrainingExercisesPage(),
                     fullscreenDialog: true,
                   ),
                 );
@@ -63,7 +63,7 @@ class _TraningPlansPageState extends State<TraningPlansPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const AddPlanNamePage(),
+                    builder: (context) => const AddTrainingPage(),
                     fullscreenDialog: true,
                   ),
                 );

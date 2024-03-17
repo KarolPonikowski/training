@@ -7,13 +7,14 @@ import 'package:training/repository/training_repository.dart';
 import '../../../../models/training_model.dart';
 import '../../../../repository/training_exercises_repository.dart';
 
-part 'add_new_plan_page_state.dart';
+part 'add_training_n_exercises_page_state.dart';
 
-class AddNewPlanPageCubit extends Cubit<AddNewPlanPageState> {
-  AddNewPlanPageCubit(
+class AddTrainingExercisesPageCubit
+    extends Cubit<AddTrainingExercisesPageState> {
+  AddTrainingExercisesPageCubit(
     this._plansNameRepository,
     this._plansRepository,
-  ) : super(const AddNewPlanPageState());
+  ) : super(const AddTrainingExercisesPageState());
 
   final TrainingRepository _plansNameRepository;
   final TrainingExercisesRepository _plansRepository;
@@ -33,16 +34,16 @@ class AddNewPlanPageCubit extends Cubit<AddNewPlanPageState> {
         weight,
         reps,
       );
-      emit(const AddNewPlanPageState(saved: true));
+      emit(const AddTrainingExercisesPageState(saved: true));
     } catch (error) {
-      emit(AddNewPlanPageState(errorMessage: error.toString()));
+      emit(AddTrainingExercisesPageState(errorMessage: error.toString()));
     }
   }
 
   Future<void> start() async {
     _streamSubscription = _plansNameRepository.getItemsStream().listen(
       (plansName) {
-        emit(AddNewPlanPageState(plansName: plansName));
+        emit(AddTrainingExercisesPageState(plansName: plansName));
       },
     );
   }

@@ -1,7 +1,7 @@
-part of 'add_new_plan_page_cubit.dart';
+part of 'add_training_n_exercises_page_cubit.dart';
 
-class AddNewPlanPageState {
-  const AddNewPlanPageState({
+class AddTrainingExercisesPageState {
+  const AddTrainingExercisesPageState({
     this.saved = false,
     this.errorMessage = '',
     // this.exercises = const [],

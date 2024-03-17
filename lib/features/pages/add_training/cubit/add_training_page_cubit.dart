@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 
 import '../../../../repository/training_repository.dart';
 
-part 'add_plan_name_page_state.dart';
+part 'add_training_page_state.dart';
 
 class AddPlanNameCubit extends Cubit<AddPlanNamePageState> {
   AddPlanNameCubit(this._plansNameRepository)
