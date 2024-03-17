@@ -77,7 +77,6 @@ class _AddTrainingExercisesPageBodyState
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) => const ExercisesPage(),
-                            fullscreenDialog: true,
                           ),
                         );
                         context.read<AddTrainingExercisesPageCubit>().add(
@@ -133,16 +132,17 @@ class _ListViewItem extends StatelessWidget {
           width: 200,
           margin: const EdgeInsets.all(10),
           padding: const EdgeInsets.all(10),
-          color: const Color.fromARGB(206, 160, 118, 233),
+          // color: const Color.fromARGB(206, 160, 118, 233),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const SizedBox(height: 10),
               Text(
-                isSelected ? "+" : "-", // traninigPlanModel.title,
-                style: const TextStyle(
+                isSelected ? traninigPlanModel.title : traninigPlanModel.title,
+                style: TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
+                  color: isSelected ? Colors.green : Colors.red,
                 ),
               ),
             ],
