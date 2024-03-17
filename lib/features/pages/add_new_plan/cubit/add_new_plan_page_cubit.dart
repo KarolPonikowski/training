@@ -11,20 +11,20 @@ part 'add_new_plan_page_state.dart';
 
 class AddNewPlanPageCubit extends Cubit<AddNewPlanPageState> {
   AddNewPlanPageCubit(
-      this._plansNameRepository, this._plansRepository, this._updatePlanId)
-      : super(const AddNewPlanPageState());
+    this._plansNameRepository,
+    this._plansRepository,
+  ) : super(const AddNewPlanPageState());
 
   final PlansNameRepository _plansNameRepository;
   final PlansRepository _plansRepository;
-  final Function(String) _updatePlanId;
 
   StreamSubscription? _streamSubscription;
 
   Future<void> add(
     String planId,
     String exerciseId,
-    Double weight,
-    Int reps,
+    double weight,
+    int reps,
   ) async {
     try {
       await _plansRepository.add(
@@ -45,10 +45,6 @@ class AddNewPlanPageCubit extends Cubit<AddNewPlanPageState> {
         emit(AddNewPlanPageState(plansName: plansName));
       },
     );
-  }
-
-  Future<void> onPlanIdChanged(TraninigPlanModel traninigPlanModel) async {
-    _updatePlanId(traninigPlanModel.id);
   }
 
   @override

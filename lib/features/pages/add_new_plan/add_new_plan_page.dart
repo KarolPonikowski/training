@@ -35,7 +35,7 @@ class _AddNewPlanPageBody extends StatefulWidget {
 }
 
 class _AddNewPlanPageBodyState extends State<_AddNewPlanPageBody> {
-  String? _planId;
+  String? _selecteedPlanId;
   late String exerciseId;
   late Double weight;
   late Int reps;
@@ -44,12 +44,9 @@ class _AddNewPlanPageBodyState extends State<_AddNewPlanPageBody> {
   Widget build(BuildContext context) {
     return BlocProvider(
         create: (context) => AddNewPlanPageCubit(
-                PlansNameRepository(), PlansRepository(), (newValue) {
-              setState(() {
-                _planId = newValue;
-              });
-            })
-              ..start(),
+              PlansNameRepository(),
+              PlansRepository(),
+            )..start(),
         child: BlocListener<AddNewPlanPageCubit, AddNewPlanPageState>(
           listener: (context, state) {
             if (state.saved) {
@@ -80,10 +77,10 @@ class _AddNewPlanPageBodyState extends State<_AddNewPlanPageBody> {
                           ),
                         );
                         context.read<AddNewPlanPageCubit>().add(
-                              _planId!,
-                              exerciseId,
-                              weight,
-                              reps,
+                              _selecteedPlanId!,
+                              '2',
+                              2.2,
+                              2,
                             );
                       },
                       icon: const Icon(Icons.check),
@@ -95,9 +92,10 @@ class _AddNewPlanPageBodyState extends State<_AddNewPlanPageBody> {
                     for (final traninigPlanModel in traninigPlanModels)
                       _ListViewItem(
                         traninigPlanModel: traninigPlanModel,
-                        onPlanIdChanged: (newValue) {
+                        isSelected: _selecteedPlanId == traninigPlanModel.id,
+                        onTap: () {
                           setState(() {
-                            _planId = newValue;
+                            _selecteedPlanId = traninigPlanModel.id;
                           });
                         },
                       ),
@@ -114,20 +112,18 @@ class _ListViewItem extends StatelessWidget {
   const _ListViewItem(
       {Key? key,
       required this.traninigPlanModel,
-      required this.onPlanIdChanged})
+      required this.onTap,
+      required this.isSelected})
       : super(key: key);
 
   final TraninigPlanModel traninigPlanModel;
-  final Function(String) onPlanIdChanged;
+  final bool isSelected;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-        onTap: () {
-          context
-              .read<AddNewPlanPageCubit>()
-              .onPlanIdChanged(traninigPlanModel);
-        },
+        onTap: onTap,
         child: Container(
           width: 200,
           margin: const EdgeInsets.all(10),
@@ -138,7 +134,7 @@ class _ListViewItem extends StatelessWidget {
             children: [
               const SizedBox(height: 10),
               Text(
-                traninigPlanModel.title,
+                isSelected ? "+" : "-", // traninigPlanModel.title,
                 style: const TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,

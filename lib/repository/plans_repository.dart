@@ -67,8 +67,8 @@ class PlansRepository {
   Future<void> add(
     String planId,
     String exerciseId,
-    Double weight,
-    Int reps,
+    double weight,
+    int reps,
   ) async {
     final userID = FirebaseAuth.instance.currentUser?.uid;
     if (userID == null) {
