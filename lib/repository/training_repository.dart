@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import '../models/training_plan_model.dart';
+import '../models/training_model.dart';
 
-class PlansNameRepository {
-  Stream<List<TraninigPlanModel>> getItemsStream() {
+class TrainingRepository {
+  Stream<List<TraninigModel>> getItemsStream() {
     final userID = FirebaseAuth.instance.currentUser?.uid;
     if (userID == null) {
       throw Exception('User is not logged in');
@@ -17,7 +17,7 @@ class PlansNameRepository {
         .map((querySnapshot) {
       return querySnapshot.docs.map(
         (doc) {
-          return TraninigPlanModel(
+          return TraninigModel(
             id: doc.id,
             title: doc['title'],
           );
@@ -39,7 +39,7 @@ class PlansNameRepository {
         .delete();
   }
 
-  Future<TraninigPlanModel> get({required String id}) async {
+  Future<TraninigModel> get({required String id}) async {
     final userID = FirebaseAuth.instance.currentUser?.uid;
     if (userID == null) {
       throw Exception('User is not logged in');
@@ -50,7 +50,7 @@ class PlansNameRepository {
         .collection('trainingplan')
         .doc(id)
         .get();
-    return TraninigPlanModel(
+    return TraninigModel(
       id: doc.id,
       title: doc['title'],
     );

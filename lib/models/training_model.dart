@@ -1,5 +1,5 @@
-class TraninigPlanModel {
-  TraninigPlanModel({
+class TraninigModel {
+  TraninigModel({
     required this.id,
     required this.title,
   });

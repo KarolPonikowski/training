@@ -3,10 +3,10 @@ import 'dart:ffi';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import '../models/plan_exercise_model.dart';
+import '../models/training_exercise_model.dart';
 
-class PlansRepository {
-  Stream<List<PlanExerciseModel>> getItemsStream() {
+class TrainingExercisesRepository {
+  Stream<List<TrainingExerciseModel>> getItemsStream() {
     final userID = FirebaseAuth.instance.currentUser?.uid;
     if (userID == null) {
       throw Exception('User is not logged in');
@@ -19,9 +19,9 @@ class PlansRepository {
         .map((querySnapshot) {
       return querySnapshot.docs.map(
         (doc) {
-          return PlanExerciseModel(
+          return TrainingExerciseModel(
             id: doc.id,
-            planId: doc['planId'],
+            trainingId: doc['trainingId'],
             exerciseId: doc['exerciseId'],
             weight: doc['weight'],
             reps: doc['reps'],
@@ -44,7 +44,7 @@ class PlansRepository {
         .delete();
   }
 
-  Future<PlanExerciseModel> get({required String id}) async {
+  Future<TrainingExerciseModel> get({required String id}) async {
     final userID = FirebaseAuth.instance.currentUser?.uid;
     if (userID == null) {
       throw Exception('User is not logged in');
@@ -55,9 +55,9 @@ class PlansRepository {
         .collection('PlanExercise')
         .doc(id)
         .get();
-    return PlanExerciseModel(
+    return TrainingExerciseModel(
       id: doc.id,
-      planId: doc['planId'],
+      trainingId: doc['trainingId'],
       exerciseId: doc['exerciseId'],
       weight: doc['weight'],
       reps: doc['reps'],
@@ -65,7 +65,7 @@ class PlansRepository {
   }
 
   Future<void> add(
-    String planId,
+    String trainingId,
     String exerciseId,
     double weight,
     int reps,
@@ -80,7 +80,7 @@ class PlansRepository {
         .collection('PlanExercise')
         .add(
       {
-        'planId': planId,
+        'trainingId': trainingId,
         'exerciseId': exerciseId,
         'weight': weight,
         'reps': reps,

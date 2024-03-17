@@ -3,9 +3,9 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../models/training_plan_model.dart';
-import '../../../repository/plans_repository.dart';
-import '../../../repository/training_plan_repository.dart';
+import '../../../models/training_model.dart';
+import '../../../repository/training_exercises_repository.dart';
+import '../../../repository/training_repository.dart';
 import 'add_exercises_to_plan_page/add_exercises_to_plan_page.dart';
 import 'cubit/add_new_plan_page_cubit.dart';
 
@@ -35,7 +35,7 @@ class _AddNewPlanPageBody extends StatefulWidget {
 }
 
 class _AddNewPlanPageBodyState extends State<_AddNewPlanPageBody> {
-  String? _selecteedPlanId;
+  String? _selecteedtrainingId;
   late String exerciseId;
   late Double weight;
   late Int reps;
@@ -44,8 +44,8 @@ class _AddNewPlanPageBodyState extends State<_AddNewPlanPageBody> {
   Widget build(BuildContext context) {
     return BlocProvider(
         create: (context) => AddNewPlanPageCubit(
-              PlansNameRepository(),
-              PlansRepository(),
+              TrainingRepository(),
+              TrainingExercisesRepository(),
             )..start(),
         child: BlocListener<AddNewPlanPageCubit, AddNewPlanPageState>(
           listener: (context, state) {
@@ -77,7 +77,7 @@ class _AddNewPlanPageBodyState extends State<_AddNewPlanPageBody> {
                           ),
                         );
                         context.read<AddNewPlanPageCubit>().add(
-                              _selecteedPlanId!,
+                              _selecteedtrainingId!,
                               '2',
                               2.2,
                               2,
@@ -92,10 +92,11 @@ class _AddNewPlanPageBodyState extends State<_AddNewPlanPageBody> {
                     for (final traninigPlanModel in traninigPlanModels)
                       _ListViewItem(
                         traninigPlanModel: traninigPlanModel,
-                        isSelected: _selecteedPlanId == traninigPlanModel.id,
+                        isSelected:
+                            _selecteedtrainingId == traninigPlanModel.id,
                         onTap: () {
                           setState(() {
-                            _selecteedPlanId = traninigPlanModel.id;
+                            _selecteedtrainingId = traninigPlanModel.id;
                           });
                         },
                       ),
@@ -116,7 +117,7 @@ class _ListViewItem extends StatelessWidget {
       required this.isSelected})
       : super(key: key);
 
-  final TraninigPlanModel traninigPlanModel;
+  final TraninigModel traninigPlanModel;
   final bool isSelected;
   final VoidCallback onTap;
 

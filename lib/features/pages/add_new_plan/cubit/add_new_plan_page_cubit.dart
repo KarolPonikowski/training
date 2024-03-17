@@ -2,10 +2,10 @@ import 'dart:async';
 import 'dart:ffi';
 
 import 'package:bloc/bloc.dart';
-import 'package:training/repository/training_plan_repository.dart';
+import 'package:training/repository/training_repository.dart';
 
-import '../../../../models/training_plan_model.dart';
-import '../../../../repository/plans_repository.dart';
+import '../../../../models/training_model.dart';
+import '../../../../repository/training_exercises_repository.dart';
 
 part 'add_new_plan_page_state.dart';
 
@@ -15,20 +15,20 @@ class AddNewPlanPageCubit extends Cubit<AddNewPlanPageState> {
     this._plansRepository,
   ) : super(const AddNewPlanPageState());
 
-  final PlansNameRepository _plansNameRepository;
-  final PlansRepository _plansRepository;
+  final TrainingRepository _plansNameRepository;
+  final TrainingExercisesRepository _plansRepository;
 
   StreamSubscription? _streamSubscription;
 
   Future<void> add(
-    String planId,
+    String trainingId,
     String exerciseId,
     double weight,
     int reps,
   ) async {
     try {
       await _plansRepository.add(
-        planId,
+        trainingId,
         exerciseId,
         weight,
         reps,

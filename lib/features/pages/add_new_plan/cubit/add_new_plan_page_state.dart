@@ -13,7 +13,7 @@ class AddNewPlanPageState {
   final bool saved;
   final String errorMessage;
   // final List<ExerciseModel> exercises;
-  final List<TraninigPlanModel> plansName;
+  final List<TraninigModel> plansName;
   final bool loadingErrorOccured;
   final bool removingErrorOccured;
 }

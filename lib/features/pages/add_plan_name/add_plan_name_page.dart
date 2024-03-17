@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../repository/training_plan_repository.dart';
+import '../../../repository/training_repository.dart';
 import '../add_new_plan/add_new_plan_page.dart';
 import 'cubit/add_plan_name_page_cubit.dart';
 
@@ -20,7 +20,7 @@ class _AddPlanNamePageState extends State<AddPlanNamePage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) => AddPlanNameCubit(PlansNameRepository()),
+        create: (context) => AddPlanNameCubit(TrainingRepository()),
         child: BlocListener<AddPlanNameCubit, AddPlanNamePageState>(
           listener: (context, state) {
             if (state.saved) {
