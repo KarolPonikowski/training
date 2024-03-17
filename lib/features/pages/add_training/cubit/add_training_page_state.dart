@@ -1,7 +1,7 @@
 part of 'add_training_page_cubit.dart';
 
-class AddPlanNamePageState {
-  const AddPlanNamePageState({
+class AddTrainingPageState {
+  const AddTrainingPageState({
     this.saved = false,
     this.errorMessage = '',
   });

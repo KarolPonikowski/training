@@ -4,9 +4,9 @@ import '../../../../repository/training_repository.dart';
 
 part 'add_training_page_state.dart';
 
-class AddPlanNameCubit extends Cubit<AddPlanNamePageState> {
-  AddPlanNameCubit(this._plansNameRepository)
-      : super(const AddPlanNamePageState());
+class AddTrainingPageCubit extends Cubit<AddTrainingPageState> {
+  AddTrainingPageCubit(this._plansNameRepository)
+      : super(const AddTrainingPageState());
 
   final TrainingRepository _plansNameRepository;
 
@@ -17,9 +17,9 @@ class AddPlanNameCubit extends Cubit<AddPlanNamePageState> {
       await _plansNameRepository.add(
         title,
       );
-      emit(const AddPlanNamePageState(saved: true));
+      emit(const AddTrainingPageState(saved: true));
     } catch (error) {
-      emit(AddPlanNamePageState(errorMessage: error.toString()));
+      emit(AddTrainingPageState(errorMessage: error.toString()));
     }
   }
 }

@@ -20,8 +20,8 @@ class _AddTrainingPageState extends State<AddTrainingPage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) => AddPlanNameCubit(TrainingRepository()),
-        child: BlocListener<AddPlanNameCubit, AddPlanNamePageState>(
+        create: (context) => AddTrainingPageCubit(TrainingRepository()),
+        child: BlocListener<AddTrainingPageCubit, AddTrainingPageState>(
           listener: (context, state) {
             if (state.saved) {
               Navigator.of(context).push(
@@ -40,7 +40,7 @@ class _AddTrainingPageState extends State<AddTrainingPage> {
               );
             }
           },
-          child: BlocBuilder<AddPlanNameCubit, AddPlanNamePageState>(
+          child: BlocBuilder<AddTrainingPageCubit, AddTrainingPageState>(
             builder: (context, state) {
               return Scaffold(
                 appBar: AppBar(
@@ -50,7 +50,7 @@ class _AddTrainingPageState extends State<AddTrainingPage> {
                       onPressed: _title == null
                           ? null
                           : () {
-                              context.read<AddPlanNameCubit>().add(_title!);
+                              context.read<AddTrainingPageCubit>().add(_title!);
                             },
                       icon: const Icon(Icons.add),
                     ),
