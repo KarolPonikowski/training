@@ -49,7 +49,6 @@ class _AddExercisePageState extends State<AddExercisePage> {
                               : () {
                                   context.read<AddExerciseCubit>().add(
                                         _title!,
-                                        _part!,
                                       );
                                 },
                       child: const Icon(Icons.add),
