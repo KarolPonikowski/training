@@ -87,4 +87,30 @@ class TrainingExercisesRepository {
       },
     );
   }
+
+  Future<void> update(
+    String id,
+    String trainingId,
+    String exerciseId,
+    double weight,
+    int reps,
+  ) async {
+    final userID = FirebaseAuth.instance.currentUser?.uid;
+    if (userID == null) {
+      throw Exception('User is not logged in');
+    }
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(userID)
+        .collection('PlanExercise')
+        .doc(id)
+        .update(
+      {
+        'trainingId': trainingId,
+        'exerciseId': exerciseId,
+        'weight': weight,
+        'reps': reps,
+      },
+    );
+  }
 }

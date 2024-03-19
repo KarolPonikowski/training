@@ -37,8 +37,8 @@ class _AddTrainingExercisesPageBody extends StatefulWidget {
 
 class _AddTrainingExercisesPageBodyState
     extends State<_AddTrainingExercisesPageBody> {
-  String? _selecteedtrainingId;
-  late String exerciseId;
+  String? _selectedtrainingId;
+  String? _selectedexerciseId;
   late Double weight;
   late Int reps;
 
@@ -53,7 +53,11 @@ class _AddTrainingExercisesPageBodyState
             AddTrainingExercisesPageState>(
           listener: (context, state) {
             if (state.saved) {
-              Navigator.of(context).pop();
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const ExercisesPage(),
+                ),
+              );
             }
             if (state.errorMessage.isNotEmpty) {
               ScaffoldMessenger.of(context).showSnackBar(
@@ -80,8 +84,8 @@ class _AddTrainingExercisesPageBodyState
                           ),
                         );
                         context.read<AddTrainingExercisesPageCubit>().add(
-                              _selecteedtrainingId!,
-                              '2',
+                              _selectedtrainingId!,
+                              _selectedexerciseId!,
                               2.2,
                               2,
                             );
@@ -95,11 +99,10 @@ class _AddTrainingExercisesPageBodyState
                     for (final traninigPlanModel in traninigPlanModels)
                       _ListViewItem(
                         traninigPlanModel: traninigPlanModel,
-                        isSelected:
-                            _selecteedtrainingId == traninigPlanModel.id,
+                        isSelected: _selectedtrainingId == traninigPlanModel.id,
                         onTap: () {
                           setState(() {
-                            _selecteedtrainingId = traninigPlanModel.id;
+                            _selectedtrainingId = traninigPlanModel.id;
                           });
                         },
                       ),
