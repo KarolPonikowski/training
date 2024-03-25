@@ -5,7 +5,8 @@ class AddTrainingExercisesPageState {
     this.saved = false,
     this.errorMessage = '',
     // this.exercises = const [],
-    this.plansName = const [],
+    this.traninigName = const [],
+    this.traninigexerciseId = const [],
     this.loadingErrorOccured = false,
     this.removingErrorOccured = false,
   });
@@ -13,7 +14,9 @@ class AddTrainingExercisesPageState {
   final bool saved;
   final String errorMessage;
   // final List<ExerciseModel> exercises;
-  final List<TraninigModel> plansName;
+  final List<TraninigModel> traninigName;
+  final List<TrainingExerciseModel> traninigexerciseId;
+
   final bool loadingErrorOccured;
   final bool removingErrorOccured;
 }

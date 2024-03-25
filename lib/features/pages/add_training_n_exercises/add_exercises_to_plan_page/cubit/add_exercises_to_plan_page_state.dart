@@ -7,6 +7,7 @@ class AddExercisesToPlanPageState {
     this.exercises = const [],
     this.loadingErrorOccured = false,
     this.removingErrorOccured = false,
+    this.trainingexerciseModel,
   });
 
   final bool saved;
@@ -14,4 +15,5 @@ class AddExercisesToPlanPageState {
   final List<ExerciseModel> exercises;
   final bool loadingErrorOccured;
   final bool removingErrorOccured;
+  final TrainingExerciseModel? trainingexerciseModel;
 }

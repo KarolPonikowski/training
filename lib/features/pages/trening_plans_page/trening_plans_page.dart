@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../add_exercise/add_exercise_page.dart';
 import '../add_training/add_training_page.dart';
 import '../add_training_n_exercises/add_training_n_exercises_page.dart';
+import '../add_training_n_exercises/confirlming_page/confirming_page.dart';
 
 class TraningPlansPage extends StatefulWidget {
   const TraningPlansPage({Key? key}) : super(key: key);
@@ -77,14 +78,20 @@ class _TraningPlansPageState extends State<TraningPlansPage> {
             )),
             ElevatedButton(
               onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('Praca w toku'),
-                    duration: Duration(seconds: 2),
+                Navigator.push(
+                  // context,
+                  // MaterialPageRoute(
+                  //   builder: (context) => const ConfirmingPage(),
+                  //   fullscreenDialog: true,
+                  // ),
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ConfirmingPage(),
+                    fullscreenDialog: true,
                   ),
                 );
               },
-              child: const Text('Edytuj istniejący plan treningowy'),
+              child: const Text('ConfirmingPage'),
             ),
             const Padding(
                 padding: EdgeInsets.symmetric(

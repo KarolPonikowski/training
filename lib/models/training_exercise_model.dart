@@ -12,6 +12,6 @@ class TrainingExerciseModel {
   final String id;
   final String trainingId;
   final String exerciseId;
-  final Double weight;
-  final Int reps;
+  final double weight;
+  final int reps;
 }

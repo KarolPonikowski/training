@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../models/training_model.dart';
 import '../../../repository/training_exercises_repository.dart';
 import '../../../repository/training_repository.dart';
-import 'add_exercises_to_plan_page/add_exercises_to_plan_page.dart';
+import 'confirlming_page/confirming_page.dart';
 import 'cubit/add_training_n_exercises_page_cubit.dart';
 
 class AddTrainingExercisesPage extends StatelessWidget {
@@ -16,11 +16,8 @@ class AddTrainingExercisesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Dodaj nowy plan'),
-      ),
-      body: const _AddTrainingExercisesPageBody(),
+    return const Scaffold(
+      body: _AddTrainingExercisesPageBody(),
     );
   }
 }
@@ -38,7 +35,7 @@ class _AddTrainingExercisesPageBody extends StatefulWidget {
 class _AddTrainingExercisesPageBodyState
     extends State<_AddTrainingExercisesPageBody> {
   String? _selectedtrainingId;
-  String? _selectedexerciseId;
+  late String exerciseId;
   late Double weight;
   late Int reps;
 
@@ -55,7 +52,7 @@ class _AddTrainingExercisesPageBodyState
             if (state.saved) {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const ExercisesPage(),
+                  builder: (context) => const ConfirmingPage(),
                 ),
               );
             }
@@ -71,8 +68,7 @@ class _AddTrainingExercisesPageBodyState
           child: BlocBuilder<AddTrainingExercisesPageCubit,
               AddTrainingExercisesPageState>(
             builder: (context, state) {
-              final traninigPlanModels = state.plansName;
-
+              final traninigModels = state.traninigName;
               return Scaffold(
                 appBar: AppBar(
                   actions: [
@@ -80,12 +76,12 @@ class _AddTrainingExercisesPageBodyState
                       onPressed: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (context) => const ExercisesPage(),
+                            builder: (context) => const ConfirmingPage(),
                           ),
                         );
                         context.read<AddTrainingExercisesPageCubit>().add(
                               _selectedtrainingId!,
-                              _selectedexerciseId!,
+                              '_selectedexerciseId!',
                               2.2,
                               2,
                             );
@@ -96,13 +92,13 @@ class _AddTrainingExercisesPageBodyState
                 ),
                 body: ListView(
                   children: [
-                    for (final traninigPlanModel in traninigPlanModels)
+                    for (final traninigModel in traninigModels)
                       _ListViewItem(
-                        traninigPlanModel: traninigPlanModel,
-                        isSelected: _selectedtrainingId == traninigPlanModel.id,
+                        traninigModel: traninigModel,
+                        isSelected: _selectedtrainingId == traninigModel.id,
                         onTap: () {
                           setState(() {
-                            _selectedtrainingId = traninigPlanModel.id;
+                            _selectedtrainingId = traninigModel.id;
                           });
                         },
                       ),
@@ -118,12 +114,12 @@ class _AddTrainingExercisesPageBodyState
 class _ListViewItem extends StatelessWidget {
   const _ListViewItem(
       {Key? key,
-      required this.traninigPlanModel,
+      required this.traninigModel,
       required this.onTap,
       required this.isSelected})
       : super(key: key);
 
-  final TraninigModel traninigPlanModel;
+  final TraninigModel traninigModel;
   final bool isSelected;
   final VoidCallback onTap;
 
@@ -141,7 +137,7 @@ class _ListViewItem extends StatelessWidget {
             children: [
               const SizedBox(height: 10),
               Text(
-                isSelected ? traninigPlanModel.title : traninigPlanModel.title,
+                isSelected ? traninigModel.title : traninigModel.title,
                 style: TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,

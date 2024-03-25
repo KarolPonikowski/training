@@ -90,7 +90,6 @@ class TrainingExercisesRepository {
 
   Future<void> update(
     String id,
-    String trainingId,
     String exerciseId,
     double weight,
     int reps,
@@ -106,7 +105,6 @@ class TrainingExercisesRepository {
         .doc(id)
         .update(
       {
-        'trainingId': trainingId,
         'exerciseId': exerciseId,
         'weight': weight,
         'reps': reps,
