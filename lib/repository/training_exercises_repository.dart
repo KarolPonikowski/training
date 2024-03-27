@@ -91,8 +91,6 @@ class TrainingExercisesRepository {
   Future<void> update(
     String id,
     String exerciseId,
-    double weight,
-    int reps,
   ) async {
     final userID = FirebaseAuth.instance.currentUser?.uid;
     if (userID == null) {
@@ -106,8 +104,6 @@ class TrainingExercisesRepository {
         .update(
       {
         'exerciseId': exerciseId,
-        'weight': weight,
-        'reps': reps,
       },
     );
   }

@@ -70,7 +70,8 @@ class ConfirmingVievPage extends StatelessWidget {
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => ExercisesPage(id: trainingexerciseModel.id),
+            builder: (context) =>
+                ExercisesPage(trainingExerciseModel: trainingexerciseModel),
           ),
         );
       },

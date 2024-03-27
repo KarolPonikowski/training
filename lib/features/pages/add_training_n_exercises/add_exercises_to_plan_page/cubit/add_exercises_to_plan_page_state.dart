@@ -5,15 +5,18 @@ class AddExercisesToPlanPageState {
     this.saved = false,
     this.errorMessage = '',
     this.exercises = const [],
+    this.trainingexercises = const [],
     this.loadingErrorOccured = false,
     this.removingErrorOccured = false,
-    this.trainingexerciseModel,
+    this.exerciseModel,
   });
 
   final bool saved;
   final String errorMessage;
   final List<ExerciseModel> exercises;
+  final List<TrainingExerciseModel> trainingexercises;
+
   final bool loadingErrorOccured;
   final bool removingErrorOccured;
-  final TrainingExerciseModel? trainingexerciseModel;
+  final ExerciseModel? exerciseModel;
 }

@@ -19,20 +19,14 @@ class AddExercisesToPlanPageCubit extends Cubit<AddExercisesToPlanPageState> {
   final ExerciseRepository _exerciseRepository;
   final TrainingExercisesRepository _trainingexercisesRepository;
 
-  StreamSubscription? _streamSubscription;
-
-  Future<void> update(
+  Future<void> updateExcercise(
     String id,
     String exerciseId,
-    double weight,
-    int reps,
   ) async {
     try {
       await _trainingexercisesRepository.update(
         id,
         exerciseId,
-        weight,
-        reps,
       );
       emit(const AddExercisesToPlanPageState(saved: true));
     } catch (error) {
@@ -40,24 +34,22 @@ class AddExercisesToPlanPageCubit extends Cubit<AddExercisesToPlanPageState> {
     }
   }
 
-  Future<void> getItemWithID(String id) async {
-    final trainingexerciseModel =
-        await _trainingexercisesRepository.get(id: id);
-    emit(AddExercisesToPlanPageState(
-        trainingexerciseModel: trainingexerciseModel));
+  StreamSubscription? _streamSubscription;
 
-    Future<void> start() async {
-      _streamSubscription = _exerciseRepository.getItemsStream().listen(
-        (exercises) {
-          emit(AddExercisesToPlanPageState(exercises: exercises));
-        },
-      );
-    }
+  Future<void> start() async {
+    _streamSubscription = _exerciseRepository.getItemsStream().listen(
+      (exercises) {
+        print(exercises.length);
+        emit(AddExercisesToPlanPageState(exercises: exercises));
+      },
+    )..onError((error) {
+        print(error.toString());
+      });
+  }
 
-    @override
-    Future<void> close() {
-      _streamSubscription?.cancel();
-      return super.close();
-    }
+  @override
+  Future<void> close() {
+    _streamSubscription?.cancel();
+    return super.close();
   }
 }
