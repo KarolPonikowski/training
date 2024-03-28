@@ -27,10 +27,10 @@ class _PlanListPageBody extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<_PlanListPageBody> createState() => _ConfirmingPageBodyState();
+  State<_PlanListPageBody> createState() => __PlanListPageBodyState();
 }
 
-class _ConfirmingPageBodyState extends State<_PlanListPageBody> {
+class __PlanListPageBodyState extends State<_PlanListPageBody> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -44,7 +44,7 @@ class _ConfirmingPageBodyState extends State<_PlanListPageBody> {
         return ListView(
           children: [
             for (final trainingexerciseModel in trainingexerciseModels)
-              ConfirmingVievPage(
+              _PlanListPageBodyView(
                 trainingexerciseModel: trainingexerciseModel,
               ),
           ],
@@ -54,8 +54,8 @@ class _ConfirmingPageBodyState extends State<_PlanListPageBody> {
   }
 }
 
-class ConfirmingVievPage extends StatelessWidget {
-  const ConfirmingVievPage({
+class _PlanListPageBodyView extends StatelessWidget {
+  const _PlanListPageBodyView({
     Key? key,
     required this.trainingexerciseModel,
   }) : super(key: key);
@@ -112,23 +112,6 @@ class ConfirmingVievPage extends StatelessWidget {
               ),
               const SizedBox(
                 height: 10,
-              ),
-              Text(
-                '${trainingexerciseModel.weight}',
-                style: const TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Text(
-                '${trainingexerciseModel.reps}',
-                style: const TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                ),
               ),
             ],
           ),
