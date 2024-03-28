@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../models/training_exercise_model.dart';
 import '../../../../repository/training_exercises_repository.dart';
+import '../../trening_plans_page/trening_plans_page.dart';
 import '../add_exercises_to_plan_page/add_exercises_to_plan_page.dart';
 import 'cubit/confirming_page_cubit.dart';
 
@@ -15,6 +16,20 @@ class ConfirmingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const TraningPlansPage(),
+                  ),
+                );
+              },
+            );
+          },
+        ),
         title: const Text('Potwierdź'),
       ),
       body: const _ConfirmingPageBody(),
