@@ -78,16 +78,17 @@ class _ExercisesPageState extends State<ExercisesPage> {
             appBar: AppBar(
               actions: [
                 IconButton(
-                  onPressed: _selectedexerciseId == null
-                      ? null
-                      : () {
-                          context
-                              .read<AddExercisesToPlanPageCubit>()
-                              .updateExcercise(
-                                widget.trainingExerciseModel.id,
-                                _selectedexerciseId!,
-                              );
-                        },
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                    _selectedexerciseId == null
+                        ? null
+                        : context
+                            .read<AddExercisesToPlanPageCubit>()
+                            .updateExcercise(
+                              widget.trainingExerciseModel.id,
+                              _selectedexerciseId!,
+                            );
+                  },
                   icon: const Icon(Icons.check),
                 )
               ],
