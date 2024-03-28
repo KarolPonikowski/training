@@ -4,6 +4,7 @@ import '../add_exercise/add_exercise_page.dart';
 import '../add_training/add_training_page.dart';
 import '../add_training_n_exercises/add_training_n_exercises_page.dart';
 import '../add_training_n_exercises/confirlming_page/confirming_page.dart';
+import '../plan_list/plan_list_page.dart';
 
 class TraningPlansPage extends StatefulWidget {
   const TraningPlansPage({Key? key}) : super(key: key);
@@ -79,11 +80,6 @@ class _TraningPlansPageState extends State<TraningPlansPage> {
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
-                  // context,
-                  // MaterialPageRoute(
-                  //   builder: (context) => const ConfirmingPage(),
-                  //   fullscreenDialog: true,
-                  // ),
                   context,
                   MaterialPageRoute(
                     builder: (context) => const ConfirmingPage(),
@@ -98,6 +94,18 @@ class _TraningPlansPageState extends State<TraningPlansPage> {
               horizontal: 30,
               vertical: 20,
             )),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const PlanListPage(),
+                    fullscreenDialog: true,
+                  ),
+                );
+              },
+              child: const Text('Twoje plany'),
+            ),
           ],
         ),
       ),
