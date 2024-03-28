@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 class TrainingExerciseModel {
   TrainingExerciseModel({
     required this.id,

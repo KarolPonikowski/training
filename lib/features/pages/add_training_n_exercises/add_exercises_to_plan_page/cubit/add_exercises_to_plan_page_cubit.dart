@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
 
 import '../../../../../models/exercise_model.dart';
 import '../../../../../models/training_exercise_model.dart';
@@ -39,12 +38,9 @@ class AddExercisesToPlanPageCubit extends Cubit<AddExercisesToPlanPageState> {
   Future<void> start() async {
     _streamSubscription = _exerciseRepository.getItemsStream().listen(
       (exercises) {
-        print(exercises.length);
         emit(AddExercisesToPlanPageState(exercises: exercises));
       },
-    )..onError((error) {
-        print(error.toString());
-      });
+    )..onError((error) {});
   }
 
   @override

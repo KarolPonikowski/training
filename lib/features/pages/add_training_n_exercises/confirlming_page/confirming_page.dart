@@ -40,7 +40,6 @@ class _ConfirmingPageBodyState extends State<_ConfirmingPageBody> {
       )..start(),
       child: BlocBuilder<ConfirmingPageCubit, ConfirmingPageState>(
           builder: (context, state) {
-        print(state.trainingexercise.length);
         final trainingexerciseModels = state.trainingexercise;
 
         return ListView(
@@ -85,7 +84,7 @@ class ConfirmingVievPage extends StatelessWidget {
           width: 200,
           margin: const EdgeInsets.all(10),
           padding: const EdgeInsets.all(10),
-          color: Color.fromARGB(206, 150, 115, 209),
+          color: const Color.fromARGB(206, 150, 115, 209),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
