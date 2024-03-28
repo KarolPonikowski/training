@@ -11,6 +11,14 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () {},
+            );
+          },
+        ),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('TrainingApp'),
       ),

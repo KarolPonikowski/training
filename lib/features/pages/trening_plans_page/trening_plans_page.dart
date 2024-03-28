@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../add_exercise/add_exercise_page.dart';
 import '../add_training/add_training_page.dart';
 import '../add_training_n_exercises/add_training_n_exercises_page.dart';
-import '../add_training_n_exercises/confirlming_page/confirming_page.dart';
+import '../home/home_page.dart';
 import '../plan_list/plan_list_page.dart';
 
 class TraningPlansPage extends StatefulWidget {
@@ -19,6 +19,20 @@ class _TraningPlansPageState extends State<TraningPlansPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const HomePage(),
+                  ),
+                );
+              },
+            );
+          },
+        ),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('Plany Treningowe'),
       ),
@@ -48,12 +62,12 @@ class _TraningPlansPageState extends State<TraningPlansPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const AddTrainingExercisesPage(),
+                    builder: (context) => const AddTrainingPage(),
                     fullscreenDialog: true,
                   ),
                 );
               },
-              child: const Text('Dodaj ćwiczenia do planu'),
+              child: const Text('Dodaj nowy plan treningowy'),
             ),
             const Padding(
                 padding: EdgeInsets.symmetric(
@@ -65,12 +79,12 @@ class _TraningPlansPageState extends State<TraningPlansPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const AddTrainingPage(),
+                    builder: (context) => const AddTrainingExercisesPage(),
                     fullscreenDialog: true,
                   ),
                 );
               },
-              child: const Text('Dodaj nowy plan treningowy'),
+              child: const Text('Dodaj ćwiczenia do planu'),
             ),
             const Padding(
                 padding: EdgeInsets.symmetric(
