@@ -15,7 +15,7 @@ class ConfirmingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ConfirmingPage'),
+        title: const Text('Potwierdź'),
       ),
       body: const _ConfirmingPageBody(),
     );
@@ -108,33 +108,6 @@ class ConfirmingVievPage extends StatelessWidget {
               ),
               const SizedBox(
                 height: 10,
-              ),
-              Text(
-                trainingexerciseModel.exerciseId,
-                style: const TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Text(
-                '${trainingexerciseModel.weight}',
-                style: const TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Text(
-                '${trainingexerciseModel.reps}',
-                style: const TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                ),
               ),
             ],
           ),

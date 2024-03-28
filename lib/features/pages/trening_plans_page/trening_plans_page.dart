@@ -53,7 +53,7 @@ class _TraningPlansPageState extends State<TraningPlansPage> {
                   ),
                 );
               },
-              child: const Text('Twoje ćwiczenia'),
+              child: const Text('Dodaj ćwiczenia do planu'),
             ),
             const Padding(
                 padding: EdgeInsets.symmetric(
@@ -71,23 +71,6 @@ class _TraningPlansPageState extends State<TraningPlansPage> {
                 );
               },
               child: const Text('Dodaj nowy plan treningowy'),
-            ),
-            const Padding(
-                padding: EdgeInsets.symmetric(
-              horizontal: 30,
-              vertical: 20,
-            )),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const ConfirmingPage(),
-                    fullscreenDialog: true,
-                  ),
-                );
-              },
-              child: const Text('ConfirmingPage'),
             ),
             const Padding(
                 padding: EdgeInsets.symmetric(

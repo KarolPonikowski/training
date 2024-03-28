@@ -14,7 +14,7 @@ class PlanListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ConfirmingPage'),
+        title: const Text('Twoje plany'),
       ),
       body: const _PlanListPageBody(),
     );
